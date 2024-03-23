@@ -1,0 +1,61 @@
+// Import readline module to interact w user via console
+const readline = require('readline');
+
+// Create readline interface
+const rl = readline.createInterface({
+// This allows us to have input
+  input: process.stdin,
+// This allows us to have output
+  output: process.stdout
+//these close our interface call
+});
+
+// Function to calculate monthly mortgage payments here
+
+// Create function itself with specifications that are essentially inputs from user
+function calculateMortgage(mortgageAmount, interest, years) {
+    
+    //we divide interest by 100 for percentage and 12 for months
+    const monthlyInterest = interest / 100 / 12;
+    //we multiply number of years that mortgage will be paid for by 12 to get exact amount of months
+    const numberOfPayments = years * 12;
+    //we multiply morgageamount by monthly interest and divide it by compunding effect of interest over total number of payments
+    const monthlyPayment = mortgageAmount * monthlyInterest / (1 - Math.pow(1 + monthlyInterest, -numberOfPayments));
+    
+    //return our output info
+    return monthlyPayment;
+//this one closes our function
+}
+
+// Ask  user for input now using rl.question method provided by readline module in Node.js
+
+//Ask for mortgage amount
+rl.question('How big is your mortgage?: ', (mortgageAmount) => {
+//Ask for interest
+rl.question('How big is your yearly interest rate in %: ', (interest) => {
+//Ask for years
+rl.question('How many years will you be paying for?: ', (years) => {
+      
+      // Convert input strings to numbers using parse method
+      
+      //mortgageamount to numbers
+      mortgageAmount = parseFloat(mortgageAmount);
+      //interest to numbers
+      interest = parseFloat(interest);
+      //years to numbers (haha, ironic innit)
+      years = parseInt(years);
+      
+      // Calculate the monthly payment using our function
+      const monthlyPayment = calculateMortgage(mortgageAmount, interest, years);
+      // Print our return from the function
+      console.log(`Your monthly mortgage payment will be $${monthlyPayment.toFixed(2)}`);
+      
+      // Close the readline interface
+      rl.close();
+     //these close rl.question 3
+    });
+    //these close rl.question 2
+  });
+  //these close rl.question 1
+});  
+//I am not sure if I was also supposed to be commenting brackets, but like, just in case, if its stupid, don´t mind it please, this took me too long to not be appreciated 
