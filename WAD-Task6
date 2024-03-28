@@ -1,0 +1,424 @@
+
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+<meta charset="UTF-8"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"></link>
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet"></link>
+<title>Computer Component Order Form</title> 
+    <!-- All the CSS code here -->
+    <style> 
+    /* Block areas of CSS */ 
+        /* Behind the main panel - the background */ 
+        body { 
+            background-color: #FAF7F9; 
+            font-family: Verdana, Geneva, Tahoma, sans-serif; } 
+        /* Main panel - the forefront */ 
+        .container { 
+            background-color:  #FAF7F9; 
+            width: 99%;
+            padding: 10px; 
+            border-radius: 10px; 
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); 
+            margin-top: 30px; } 
+        /* Green Informantion pannel inside of main panel */ 
+        .information { 
+            background-color:  #419486; 
+            padding-left: 10px;
+            padding-right: 10px; 
+            padding-top: 1px;
+            padding-bottom: 1px;
+            border-radius: 10px; 
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); 
+            margin-top: 20px; }
+    /* Text areas of CSS */ 
+        /* ´Order Form´ text */ 
+        #toptext {
+            color: #419486;
+            font-family: 'Poppins', ;
+            font-size: 30px;
+            text-align: center;
+            margin-top: 10px; }
+        /* ´For computer components´ text */ 
+        #bottomtext {
+            color: #419486;
+            font-family: 'Poppins';
+            font-size: 20px;
+            text-align: center; } 
+        /* Text inside of green box */ 
+        #introtext {
+            color: #FAF7F9;
+            font-family: 'Poppins';
+            font-size: 15px;
+            text-align: left;
+            margin-top: 10px; }
+        /* ´Customer info, address, order´ text */ 
+        #custominfo {
+            color: #419486;
+            font-family: 'Poppins', ;
+            font-size: 15px;
+            text-align: center;
+            margin-top: 10px; }
+    /* Original Components, not IDs or Classes */ 
+        /* All the labels */ 
+        label {
+            color: #419486;
+            font-size: 12px;
+            font-weight: bold;
+            text-align: left;
+            margin-bottom: 1px; }
+        /* Text within the input fields before one starts writting in it */ 
+        ::placeholder {
+            color:#419486;
+            font-size: 12px;
+            padding-left: 5px; }
+        /* Text within the input fields after one starts writting in it */ 
+        input[type="text"] {
+            color:#419486;
+            width: 100%;
+            border-radius: 5px; 
+            border: 1px solid #ddd;
+            margin-bottom: 1px;
+            padding-left: 5px;  }
+        /* Entire numbering fields design */ 
+        input[type="number"] {
+            color:#419486;
+            width: fit-content;
+            border-radius: 5px; 
+            border: 1px solid #ddd;
+            margin-bottom: 1px;
+            padding-left: 5px; }
+        /* Text within the input for options */ 
+        select{
+            color: #419486;
+            padding: 6px; /* Slightly increased padding so its perfect*/
+            display: block;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            width: 100%;
+            box-sizing: border-box;
+            height: 36px; /* Explicit height adjusted because it was slightly wrong, couldn´t really figure out why tbh */
+            font-size: 14px; }
+        /* Block for the input for text areas */ 
+        textarea {
+            color:#419486;
+            padding: 1px;
+            display: block;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            width: 100%;
+            padding-left: 5px; }
+        /* General button design */ 
+        button {
+            color:#FAF7F9;
+            background-color: #419486;
+            display: block;
+            border-radius: 5px;
+            border: 1px solid #419486;
+            margin-bottom: 10px; }
+        /* General paragraph design */ 
+        p {
+            display: inline-block;
+            margin-right: 10px; }
+        /* General design for the options withing buttons */
+        .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px; }
+        .input-group {
+            display: flex;
+            flex-direction: column; 
+            flex-basis: calc(50% - 20px); }
+        .input-group label, .input-group input, .input-group select {
+            width: 100%; }
+        .input-group label {
+            margin-bottom: 5px; }
+        input[type="text"], input[type="number"], select, textarea {
+            color: #419486;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            padding: 5px; 
+            margin-bottom: 0px; }
+        .input-row {
+            display: flex;
+            flex-wrap: wrap; 
+            gap: 10px; }
+        .input-pair {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; }
+        .input-pair label, .input-pair input, .input-pair select {
+            width: 100%; }
+        input.amount-area {
+            padding: 3px;
+            margin: 10px;
+            width: 80px;}
+        .submit-button-container {
+            display: flex;
+            justify-content: center;
+        }
+    </style> 
+</head> 
+<!-- Main HTML, order specific style and script is added withing here for my personal easier navigation, plus it isn´t the biggest deal with smaller projects -->
+<body> 
+ <!-- main container -->
+ <div class="container">
+    <!-- Non-functional top area -->
+    <h1 id="toptext"><strong>ORDER FORM</strong><br/></h1>
+    <h1 id="bottomtext"><strong>FOR COMPUTER COMPONENTS</strong></h1>
+    <div class="information">
+        <p id="introtext">This form is strictly informative, and does not create an obligation to provide any real information, however if you will fill it in, it will be send to my e-mail address. Please don´t spam me, cheers.</p>
+        <!-- Customer information and Order Address simple label inputs -->
+    </div>
+    <div class="customerinfo">
+        <!-- Customer information -->
+        <h2 id="custominfo"><strong>CUSTOMER INFORMATION:</strong></h2>
+        <form id="orderForm" method="POST" action="https://formspree.io/f/xeqylwvy" data-netlify="true" validate>
+        <label for="fname">First Name:</label>
+        <input type="text" id="fname" name="firstname" placeholder="Your first name.." required></input>
+        <label for="lname">Last Name:</label>
+        <input type="text" id="lname" name="lastname" placeholder="Your last name.." required></input>
+        <label for="fname">Company:</label>
+        <input type="text" id="company" name="firstname" placeholder="Your company.." required></input>
+        <label for="fname">Department:</label>
+        <input type="text" id="company" name="company" placeholder="Your company.." required></input>
+        <!-- Customer address -->
+        <h2 id="custominfo"><strong>CUSTOMER ADDRESS:</strong></h2>
+        <label for="fname">Address:</label>
+        <input type="text" id="company" name="firstname" placeholder="Your street address and house number.."  required></input>
+        <label for="fname">City:</label>
+        <input type="text" id="company" name="firstname" placeholder="Your city and zip code.."  required></input>
+        <label for="country">Country</label>
+        <select id="country" name="country" >
+            <option value="austria">Austria</option>
+            <option value="germany">Germany</option>
+            <option value="switzerland">Switzerland</option>
+        </select>
+        <label for="addinfo">Additional Information:</label>
+        <textarea id="subject" name="subject" rows="3" style="height: 100px; line-height: 30px;" placeholder="Write additional comments regarding address information.." style="height:200px"></textarea>
+        <hr></hr>
+    </div>
+    <!-- Oder information: -->
+    <h2 id="custominfo"><strong>ORDER:</strong></h2>
+    <!-- CPU Order -->
+    <button id="addcpu" type="button" onclick="addCpuForm()">Order CPU:</button>
+    <div id="cpuForms"></div>
+        <hr></hr>
+        <!-- CPU Order functionality -->
+        <script>
+        // Load forms from localStorage on page load
+        document.addEventListener('DOMContentLoaded', (event) => {
+        const cpuForms = JSON.parse(localStorage.getItem('cpuForms')) || [];
+        cpuForms.forEach(form => addCpuForm(form)); }); 
+        // Save forms to localStorage
+        function saveCpuFormsToLocalStorage() {
+            const cpuFormsDiv = document.getElementById('cpuForms');
+            const cpuForms = Array.from(cpuFormsDiv.children).map(formDiv => {
+            return { manufacturer: formDiv.querySelector('input[name="manufacturer"]').value,
+                     type: formDiv.querySelector('input[name="type"]').value }; });
+                     localStorage.setItem('cpuForms', JSON.stringify(cpuForms)); }
+        // Log cpu forms
+        function logCpuForms() {
+            const cpuFormsDiv = document.getElementById('cpuForms');
+            const cpuForms = Array.from(cpuFormsDiv.children).map(formDiv => {
+            return { manufacturer: formDiv.querySelector('input[name="manufacturer"]').value,
+                     type: formDiv.querySelector('input[name="type"]').value }; });
+                     console.log(cpuForms); }
+                     function addCpuForm(form = { manufacturer: '', type: '' }) {
+        // Pop-up area
+         const cpuFormsDiv = document.getElementById('cpuForms');
+        const formIndex = cpuFormsDiv.children.length;
+        const formDiv = document.createElement('div');
+        formDiv.innerHTML = `
+        <div class="form-row">
+            <div class="input-group">
+                <label for="cpumanufacturer">Manufacturer:</label>
+                <input type="text" id="cpumanufacturer" name="cpumanufacturer" placeholder="Intel, ARM Holdings..."></div>
+            <div class="input-group">
+                <label for="cpugeneration">Generation:</label>
+                <input type="text" id="cpugeneration" name="cpugeneration" placeholder="Zen 3, Comet Lake..."></div>
+            <div class="input-row">
+                <div class="input-pair">
+                    <label for="cpumemorytype">Memory Type:</label>
+                    <input type="text" id="cpumemorytype" name="cpumemorytype" placeholder="DDR4, DDR3..."></div>
+                <div class="input-pair">
+                    <label for="cpumemorysize${formIndex}">Memory Size:</label>
+                    <select id="cpumemorysize${formIndex}" name="cpumemorysize"></select></div>
+                <div class="input-pair">
+                    <label for="cpucorecount">Core Count:</label>
+                    <input type="number" id="cpucorecount" name="cpucorecount" min="1" max="128"></div>
+                <div class="input-pair">
+                    <label for="cpuclockspeed">Clock Speed (GHz):</label>
+                    <input type="number" id="cpuclockspeed" name="cpuclockspeed" min="1.0" max="10.0" step="1"></div></div></div>
+        <label for="cpuamount${formIndex}" class="amount-area">Amount:</label>
+        <input type="number" id="cpuamount${formIndex}" name="cpuamount" min="1" class="amount-area">
+        <button onclick="removeCpuForm(${formIndex})">Delete</button>`;
+        cpuFormsDiv.appendChild(formDiv);
+        // Populate the memorySize select element immediately after creation
+        const cpuMemorySizeSelect = document.getElementById(`cpumemorysize${formIndex}`);
+        for (let size = 2; size <= 4096; size *= 2) {
+            const option = document.createElement('option');
+            option.value = size;
+            option.textContent = `${size} GB`;
+            cpuMemorySizeSelect.appendChild(option); }
+        // Add event listeners to new inputs as needed
+        formDiv.querySelectorAll('input').forEach(input => {
+            input.addEventListener('input', () => {
+                saveCpuFormsToLocalStorage();
+        }); }); }
+        // Code for removing the CPU
+        function removeCpuForm(formIndex) {
+        const cpuFormsDiv = document.getElementById('cpuForms');
+        cpuFormsDiv.removeChild(cpuFormsDiv.children[formIndex]);
+        saveCpuFormsToLocalStorage(); }
+    </script>
+    <!-- GPU Order -->
+    <button id="addgpu" type="button" onclick="addGpuForm()">Order GPU:</button>
+    <div id="gpuForm"></div>
+        <hr></hr>
+        <!-- GPU Order functionality -->
+        <script>
+        // Load form from localStorage on page load
+        document.addEventListener('DOMContentLoaded', (event) => {
+        const gpuForm = JSON.parse(localStorage.getItem('gpuForm')) || [];
+        gpuForm.forEach(form => addGpuForm(form)); }); 
+        // Save form to localStorage
+        function saveGpuFormToLocalStorage() {
+            const gpuFormDiv = document.getElementById('gpuForm');
+            const gpuForm = Array.from(gpuFormDiv.children).map(formDiv => {
+            return { manufacturer: formDiv.querySelector('input[name="manufacturer"]').value,
+                     type: formDiv.querySelector('input[name="type"]').value }; });
+                     localStorage.setItem('gpuForm', JSON.stringify(gpuForm)); }
+        // Log gpu form
+        function logGpuForm() {
+            const gpuFormDiv = document.getElementById('gpuForm');
+            const gpuForm = Array.from(gpuFormDiv.children).map(formDiv => {
+            return { manufacturer: formDiv.querySelector('input[name="manufacturer"]').value,
+                     type: formDiv.querySelector('input[name="type"]').value }; });
+                     console.log(gpuForm); }
+        function addGpuForm(form = { manufacturer: '', type: '' }) {
+            // Pop-up area
+            const gpuFormDiv = document.getElementById('gpuForm');
+            const formIndex = gpuFormDiv.children.length;
+            const formDiv = document.createElement('div');
+            formDiv.innerHTML = `
+        <div class="form-row">
+            <div class="input-group">
+                <label for="gpumanufacturer${formIndex}">Manufacturer:</label>
+                <input type="text" id="gpumanufacturer${formIndex}" name="gpumanufacturer" placeholder="NVIDIA, AMD..."></div>
+            <div class="input-group">
+                <label for="gpugeneration${formIndex}">Generation/Model/Series:</label>
+                <input type="text" id="gpugeneration${formIndex}" name="gpugeneration" placeholder="RTX 30 Series, RX 6000 Series..."></div>
+            <div class="input-row">
+                <div class="input-pair">
+                    <label for="gpumemorytype${formIndex}">Memory Type:</label>
+                    <input type="text" id="gpumemorytype${formIndex}" name="gpumemorytype" placeholder="GDDR6, HBM2..."></div>
+                <div class="input-pair">
+                    <label for="gpumemorysize${formIndex}">Memory Size:</label>
+                    <select id="gpumemorysize${formIndex}" name="gpumemorysize"></select></div>
+                <div class="input-pair">
+                    <label for="gpucorecount${formIndex}">Core Count:</label>
+                    <input type="number" id="gpucorecount${formIndex}" name="gpucorecount" min="1" max="16384"></div>
+                <div class="input-pair">
+                    <label for="gpuclockspeed${formIndex}">Clock Speed (GHz):</label>
+                    <input type="number" id="gpuclockspeed${formIndex}" name="gpuclockspeed" min="0.1" max="3.0" step="0.1"></div></div></div>
+        <label for="gpuamount${formIndex}" class="amount-area">Amount:</label>
+        <input type="number" id="gpuamount${formIndex}" name="gpuamount" min="1" class="amount-area">
+        <button onclick="removeGpuForm(${formIndex})">Delete</button>`;
+        gpuFormDiv.appendChild(formDiv); 
+        // Populate the gpuMemorySizeSelect select element immediately after creation
+        const gpuMemorySizeSelect = document.getElementById(`gpumemorysize${formIndex}`);
+        for (let size = 2; size <= 64; size *= 2) {
+            const option = document.createElement('option');
+            option.value = size;
+            option.textContent = `${size} GB`;
+            gpuMemorySizeSelect.appendChild(option); }   
+        // Add event listeners to new inputs as needed
+        formDiv.querySelectorAll('input').forEach(input => {
+            input.addEventListener('input', () => {
+            saveGpuFormToLocalStorage();
+            });})}
+        // Code for removing the gpu
+        function removeGpuForm(formIndex) {
+            const gpuFormDiv = document.getElementById('gpuForm');
+            gpuFormDiv.removeChild(gpuFormDiv.children[formIndex]);
+            saveGpuFormToLocalStorage(); } 
+        </script>
+    <button id="addram" type="button" onclick="addRamForm()">Order RAM:</button>
+    <div id="ramForm"></div>
+        <hr></hr>
+        <!-- RAM Order functionality -->
+        <script>
+        // Load form from localStorage on page load
+        document.addEventListener('DOMContentLoaded', (event) => {
+        const ramForm = JSON.parse(localStorage.getItem('ramForm')) || [];
+        ramForm.forEach(form => addRamForm(form)); }); 
+        // Save form to localStorage
+        function saveRamFormToLocalStorage() {
+            const ramFormDiv = document.getElementById('ramForm');
+            const ramForm = Array.from(ramFormDiv.children).map(formDiv => {
+            return { manufacturer: formDiv.querySelector('input[name="manufacturer"]').value,
+                     type: formDiv.querySelector('input[name="type"]').value }; });
+                     localStorage.setItem('ramForm', JSON.stringify(ramForm)); }
+        // Log ram form
+        function logRamForm() {
+            const ramFormDiv = document.getElementById('ramForm');
+            const ramForm = Array.from(ramFormDiv.children).map(formDiv => {
+            return { manufacturer: formDiv.querySelector('input[name="manufacturer"]').value,
+                     type: formDiv.querySelector('input[name="type"]').value }; });
+                     console.log(ramForm); }
+                     function addRamForm(form = { manufacturer: '', type: '' }) {
+        // Pop-up area
+        const ramFormDiv = document.getElementById('ramForm');
+        const formIndex = ramFormDiv.children.length;
+        const formDiv = document.createElement('div');
+        formDiv.innerHTML = `
+        <div class="form-row">
+            <div class="input-group">
+                <label for="rammanufacturer${formIndex}">Manufacturer:</label>
+                <input type="text" id="rammanufacturer${formIndex}" name="rammanufacturer" placeholder="Corsair, Intel..."></div>
+            <div class="input-group">
+                <label for="ramgeneration${formIndex}">Generation/Model/Series:</label>
+                <input type="text" id="ramgeneration${formIndex}" name="ramgeneration" placeholder="Vengeance, Ripjaws..."></div>
+            <div class="input-row">
+                <div class="input-pair">
+                    <label for="ramtype${formIndex}">RAM Type:</label>
+                    <input type="text" id="ramtype${formIndex}" name="ramtype" placeholder="DDR4, DDR5..."></div>
+                <div class="input-pair">
+                    <label for="ramsize${formIndex}">RAM Size:</label>
+                    <select id="ramsize${formIndex}" name="ramsize"></select></div>
+                <div class="input-pair">
+                    <label for="ramlatency${formIndex}">Latency (CL):</label>
+                    <input type="number" id="ramlatency${formIndex}" name="ramlatency" min="1" max="20" placeholder="e.g., 16"></div>
+                <div class="input-pair">
+                    <label for="ramspeed${formIndex}">RAM Speed (MHz):</label>
+                    <input type="number" id="ramspeed${formIndex}" name="ramspeed" min="2133" max="5100" step="100" placeholder="e.g., 3200"></div></div></div>
+        <label for="ramamount${formIndex}" class="amount-area">Amount:</label>
+        <input type="number" id="ramamount${formIndex}" name="ramamount" min="1" class="amount-area"></div>
+        <button onclick="removeRamForm(${formIndex})">Delete</button>`;
+        ramFormDiv.appendChild(formDiv); 
+        // Populate the ramSizeSelect select element immediately after creation
+        const ramSizeSelect = document.getElementById(`ramsize${formIndex}`);
+        for (let size = 4; size <= 64; size *= 2) {
+            const option = document.createElement('option');
+            option.value = size;
+            option.textContent = `${size} GB`;
+            ramSizeSelect.appendChild(option); }   
+        // Add event listeners to new inputs as needed
+        formDiv.querySelectorAll('input').forEach(input => {
+            input.addEventListener('input', () => {
+            saveRamFormToLocalStorage();
+            });}) }   
+        // Code for removing the ram
+        function removeRamForm(formIndex) {
+            const ramFormDiv = document.getElementById('ramForm');
+            ramFormDiv.removeChild(ramFormDiv.children[formIndex]);
+            saveRamFormToLocalStorage(); }
+        </script>
+    <div class="submit-button-container">
+      <button> SUBMIT </button>
+    </div>
+  </form>
+ </body>
+</html>
